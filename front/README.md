@@ -1,8 +1,27 @@
-# React + Vite
+### Installing and launching Back-end
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Install all dependencies for Back-end:
 
-Currently, two official plugins are available:
+- `npm install` or `yarn`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. Launch back-end on port 3000 (default port):
+
+- `npm run dev` or `yarn run dev`
+
+## Installing and launching Front-end
+
+1. Install all dependencies for Front-end:
+
+- `npm install` or `yarn`
+
+2. Launch front-end:
+
+- `npm start` or `yarn start`
+  Front-end will launch at URL:
+  `http://localhost:80`.
+  URL availables in this project:
+- `http://localhost:80`
+- `http://localhost:80/profil/12`
+- `http://localhost:80/profil/18`
+- `http://localhost:80/settings`
+- `http://localhost:80/community`
