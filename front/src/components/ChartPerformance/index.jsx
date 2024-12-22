@@ -10,22 +10,12 @@ import {
 
 function ChartPerformance({ data }) {
     const renderPolarAngleAxis = ({ payload, x, y, cx, cy, ...rest }) => {
-        for (const [key, value] of Object.entries(data.kind)) {
-            switch (value) {
-                case 'energy':
-                    data.kind[key] = 'energie'
-                    break
-                case 'strength':
-                    data.kind[key] = 'force'
-                    break
-                case 'speed':
-                    data.kind[key] = 'vitesse'
-                    break
-                case 'intensity':
-                    data.kind[key] = 'intensité'
-                    break
-                default:
-            }
+        const formatLabel = (value) => {
+            if (value === 'Energy') return 'Energie'
+            if (value === 'Strength') return 'Force'
+            if (value === 'Speed') return 'Vitesse'
+            if (value === 'Intensity') return 'Intensité'
+            return value
         }
 
         return (
@@ -37,8 +27,10 @@ function ChartPerformance({ data }) {
                 fill="#FFFFFF"
                 fontSize="0.75rem"
             >
-                {data.kind[payload.value].charAt(0).toUpperCase() +
-                    data.kind[payload.value].slice(1)}
+                {formatLabel(
+                    data.kind[payload.value].charAt(0).toUpperCase() +
+                    data.kind[payload.value].slice(1)
+                )}
             </Text>
         )
     }
