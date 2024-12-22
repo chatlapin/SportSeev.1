@@ -1,5 +1,7 @@
 # SportSeev.1
 
+Due: RestAPI, Postman, Docker Desktop, Fetch, Axios, Prop-types, useContext, useToggle..
+
 ### Installing and launching Back-end
 
 1. Install all dependencies for Back-end:
