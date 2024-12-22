@@ -4,6 +4,15 @@
 /* ==                PROFIL                 */
 /*---------------------------------------- */
 .profil {
+    width: 830px;
+    margin: auto;
+    padding-left: 10px;
+
+    @include desktop-breakpoint {
+        width: fit-content;
+        padding-left: 0;
+    }
+
     &-title {
         font-size: 3rem;
         font-weight: 500;
@@ -18,40 +27,47 @@
         margin-top: 2.5625rem;
         margin-bottom: 4.8125rem;
         font-size: 1.125rem;
-        font-weight: 400;
     }
 }
 
 .dashboard {
     display: flex;
-    margin-bottom: 5rem;
+    flex-direction: column;
 
-    &-charts {
-        width: 52.1875rem;
-        height: 20rem;
-        border-radius: 5px;
-        background: #fbfbfb;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
-        font-size: 0.87rem;
+    @include desktop-breakpoint {
+        flex-direction: row;
+    }
 
-        div:first-child {
-            display: flex;
-        }
+    &-charts-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        order: 2;
 
-        &-wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        @include desktop-breakpoint {
+            order: 1;
         }
     }
 
     &-aside {
-        margin-left: 1.9375rem;
+        display: flex;
+        justify-content: space-between;
+        order: 1;
+
+        @include desktop-breakpoint {
+            display: block;
+            order: 2;
+            margin-left: 1.9375rem;
+        }
     }
 }
 
 .small-card-wrapper {
     display: flex;
     justify-content: space-between;
-    width: 52.1875rem;
+    margin-bottom: 2rem;
+
+    @include desktop-breakpoint {
+        margin-bottom: 0;
+    }
 }

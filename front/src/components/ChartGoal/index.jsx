@@ -14,7 +14,7 @@ function ChartGoal({ data }) {
     return (
         <>
             <h3 className="chartgoal-title">Score</h3>
-            <ResponsiveContainer width="70%" height="70%">
+            <ResponsiveContainer width="70%" height="70%" className={'center'}>
                 <RadialBarChart
                     innerRadius="0%"
                     outerRadius="0%"
@@ -37,7 +37,7 @@ function ChartGoal({ data }) {
                     />
                 </RadialBarChart>
             </ResponsiveContainer>
-            <div className="chartgoal-label">
+            <div className="chartgoal-label center">
                 <p className="percent">
                     {data.score && data.score * 100}
                     {data.todayScore && data.todayScore * 100}%

@@ -1,14 +1,27 @@
 /* ---------------------------------------- */
 /* ==          VARIABLES             */
 /*---------------------------------------- */
+
 $primary-color: #ff0101;
+
 $font-size: (
     desktop: 1rem,
+);
+
+$breakpoints: (
+    desktop: 1440px,
 );
 
 /* ---------------------------------------- */
 /* ==        GENERAL MIXINS            */
 /*---------------------------------------- */
+/* This is a mixin that will be used to create a breakpoint for the desktop. */
+@mixin desktop-breakpoint {
+    @media screen and (min-width: map-get($breakpoints, desktop)) {
+        @content;
+    }
+}
+
 @mixin no-margin {
     margin: 0;
 }
@@ -19,8 +32,10 @@ $font-size: (
     $g: calc(green($color) / 255);
     $b: calc(blue($color) / 255);
     $a: $opacity;
+
     // grayscale fallback if SVG from data url is not supported
     $lightness: lightness($color);
+
     // color filter
     $svg-filter-id: 'recolor';
     filter: saturate(0%) brightness(0%) invert($lightness) opacity($opacity);

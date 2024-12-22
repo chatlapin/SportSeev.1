@@ -54,9 +54,9 @@ function Profil() {
     ])
 
     return (
-        <section className="profil">
+        <section className="profil-wrapper">
             {user && (
-                <div>
+                <div className="profil">
                     <h2 className="profil-title">
                         Bonjour{' '}
                         <span className="profil-firstName">
@@ -68,7 +68,7 @@ function Profil() {
                     </p>
                     <div className="dashboard">
                         <div className="dashboard-charts-wrapper">
-                            <div className="dashboard-charts">
+                            <div className="activity-charts">
                                 {activity && (
                                     <ChartActivity data={activity.sessions} />
                                 )}
@@ -106,7 +106,9 @@ function Profil() {
 
                         <div className="dashboard-aside">
                             <Card
-                                userKeyData={user.keyData.calorieCount}
+                                userKeyData={user.keyData.calorieCount.toLocaleString(
+                                    'en-US'
+                                )}
                                 unit="kCal"
                                 subtitle="Calories"
                                 className="calorie"

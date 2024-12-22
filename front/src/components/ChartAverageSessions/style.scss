@@ -15,14 +15,6 @@
         text-align: center;
     }
 
-    .recharts-responsive-container {
-        position: absolute;
-        top: 55%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-    }
-
     .recharts-text {
         font-weight: 500;
     }
@@ -31,8 +23,8 @@
 .chartaverage-sessions {
     &-title {
         position: absolute;
-        top: 29px;
-        left: 34px;
+        top: 1.8125rem;
+        left: 2.125rem;
         color: #fff;
         font-size: 0.9375rem;
         font-weight: 500;

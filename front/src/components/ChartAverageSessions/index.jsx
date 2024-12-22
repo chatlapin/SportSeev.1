@@ -29,7 +29,7 @@ function ChartAverageSessions({ data }) {
                 Durée moyenne des <br />
                 sessions
             </h3>
-            <ResponsiveContainer width="90%" height="70%">
+            <ResponsiveContainer width="90%" height="70%" className={'center'}>
                 <LineChart data={data}>
                     <Line
                         type="natural"
