@@ -11,10 +11,7 @@ function Router() {
                 <Header />
                 <Sidebar />
                 <Routes>
-                    <Route exact path="/" element={<Home />} />
-                    {/* It tells the router to match the URL `/annonce/:annonceId` and render the `<Annonce />` component. */}
-                    <Route exact path="/user/:userId" element={<Profil />} />
-                    {/* It tells the router to match the URL `/a-propos` and render the `<APropos />` component. */}
+                    <Route exact path="/profil/:userId" element={<Profil />} />
                 </Routes>
             </BrowserRouter>
         </React.StrictMode>

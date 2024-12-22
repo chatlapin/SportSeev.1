@@ -1,4 +1,9 @@
 @import '../../variables.scss';
+
 /* ---------------------------------------- */
 /* ==                HOME                 */
 /*---------------------------------------- */
+.home {
+    display: flex;
+    justify-content: space-evenly;
+}

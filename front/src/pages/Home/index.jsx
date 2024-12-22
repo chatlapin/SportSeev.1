@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom'
+import './style.scss'
 function Home() {
     return (
         <section className="home">
-            Home
-            <div>
-                <Link to={'/user/12'}>User 12 </Link>
-                <Link to={'/user/18'}>User 18</Link>
-            </div>
+            <Link to={'/profil/12'}>Profil utilisateur n°12 </Link>
+            <Link to={'/profil/18'}>Profil utilisateur n°18</Link>
         </section>
     )
 }

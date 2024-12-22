@@ -1,0 +1,77 @@
+@import '../../variables.scss';
+
+/* ---------------------------------------- */
+/* ==                CARD                */
+/*---------------------------------------- */
+.card {
+    display: flex;
+    width: 194px;
+    height: 60px;
+    margin-bottom: 2.4375rem;
+    padding: 32px;
+    border-radius: 5px;
+    background: #fbfbfb;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    &-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1.1875rem;
+        height: 1.1875rem;
+        transform: translate(-50%, -50%);
+
+        &-wrapper {
+            position: relative;
+            width: 3.75rem;
+            height: 3.75rem;
+            margin-right: 24px;
+            border-radius: 6px;
+            text-align: center;
+
+            &.calorie {
+                background: rgba(255, 0, 0, 0.07);
+            }
+
+            &.protein {
+                background: rgba(74, 184, 255, 0.1);
+            }
+
+            &.carbohydrate {
+                background: rgba(249, 206, 35, 0.1);
+            }
+
+            &.lipid {
+                background: rgba(253, 81, 129, 0.1);
+            }
+        }
+    }
+
+    &-data-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    &-title {
+        color: #282d30;
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 1.5rem;
+    }
+
+    &-subtitle {
+        color: #74798c;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+    }
+}
