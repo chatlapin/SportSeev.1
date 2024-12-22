@@ -4,6 +4,10 @@ import { Context } from '../../context'
 
 import Card from '../../components/Card'
 import ChartsCard from '../../components/ChartsCard'
+import ChartActivity from '../../components/ChartActivity'
+import ChartAverageSessions from '../../components/ChartAverageSessions'
+import ChartGoal from '../../components/ChartGoal'
+import ChartPerformance from '../../components/ChartPerformance'
 
 import energy from '../../assets/energy.svg'
 import chicken from '../../assets/chicken.svg'
@@ -66,29 +70,7 @@ function Profil() {
                         <div className="dashboard-charts-wrapper">
                             <div className="dashboard-charts">
                                 {activity && (
-                                    <div>
-                                        <h2>Activity :</h2>
-                                        {activity.sessions.map(
-                                            (item, index) => (
-                                                <div key={'activity-' + index}>
-                                                    <ul>
-                                                        {index + 1} :
-                                                        <li>
-                                                            Date : {item.day}
-                                                        </li>
-                                                        <li>
-                                                            Kilogram :{' '}
-                                                            {item.kilogram}
-                                                        </li>
-                                                        <li>
-                                                            Calories :{' '}
-                                                            {item.calories}
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            )
-                                        )}
-                                    </div>
+                                    <ChartActivity data={activity.sessions} />
                                 )}
                             </div>
                             <div className="small-card-wrapper">
@@ -96,33 +78,9 @@ function Profil() {
                                     <ChartsCard
                                         className="average-sessions"
                                         content={
-                                            <div>
-                                                <h2>AverageSessions :</h2>
-                                                {averageSessions.sessions.map(
-                                                    (item, index) => (
-                                                        <div
-                                                            key={
-                                                                'averageSessions-' +
-                                                                index
-                                                            }
-                                                            style={{
-                                                                display: 'flex',
-                                                            }}
-                                                        >
-                                                            <ul>
-                                                                Day {item.day} :
-                                                                <li>
-                                                                    sessionLength
-                                                                    :{' '}
-                                                                    {
-                                                                        item.sessionLength
-                                                                    }
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    )
-                                                )}
-                                            </div>
+                                            <ChartAverageSessions
+                                                data={averageSessions.sessions}
+                                            />
                                         }
                                     />
                                 )}
@@ -131,29 +89,9 @@ function Profil() {
                                     <ChartsCard
                                         className="performance"
                                         content={
-                                            <div>
-                                                <h2>Performance :</h2>
-                                                {performance.data.map(
-                                                    (item, index) => (
-                                                        <div
-                                                            key={
-                                                                'performance-data-' +
-                                                                index
-                                                            }
-                                                        >
-                                                            <div>
-                                                                {
-                                                                    performance[
-                                                                    'kind'
-                                                                    ][item.kind]
-                                                                }
-                                                                {' : '}
-                                                                {item.value}
-                                                            </div>
-                                                        </div>
-                                                    )
-                                                )}
-                                            </div>
+                                            <ChartPerformance
+                                                data={performance}
+                                            />
                                         }
                                     />
                                 )}
@@ -161,20 +99,10 @@ function Profil() {
                                     <ChartsCard
                                         className="score"
                                         content={
-                                            <div>
-                                                <h2>User Infos : </h2>
-                                                {user.score && (
-                                                    <div>
-                                                        score : {user.score}
-                                                    </div>
-                                                )}
-                                                {user.todayScore && (
-                                                    <div>
-                                                        todayScore :{' '}
-                                                        {user.todayScore}
-                                                    </div>
-                                                )}
-                                            </div>
+                                            <ChartGoal
+                                                circleSize={260}
+                                                data={user}
+                                            />
                                         }
                                     />
                                 )}
