@@ -1,39 +1,50 @@
-import { PolarAngleAxis, RadialBarChart, RadialBar } from 'recharts'
+import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts'
 
-function ChartGoal({ circleSize, data }) {
+import './style.scss'
+
+function ChartGoal({ data }) {
+    let score = 0
+    if (data.todayScore) {
+        score = data.todayScore
+    } else if (data.score) {
+        score = data.score
+    }
+
+    const dataArray = [{ name: 'score', value: score }]
     return (
         <>
-            <RadialBarChart
-                width={260}
-                height={260}
-                cx={circleSize / 2}
-                cy={circleSize / 2}
-                innerRadius="80%"
-                outerRadius="80%"
-                barSize={10}
-                data={[data]}
-                startAngle={90}
-                endAngle={450}
-            >
-                <PolarAngleAxis type="number" domain={[0, 1]} tick={false} />
-                <RadialBar
-                    background
-                    dataKey="score"
-                    cornerRadius={circleSize / 2}
-                    fill="#FF0000"
-                />
-                <text
-                    x={circleSize / 2}
-                    y={circleSize / 2}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    className="progress-label"
+            <h3 className="chartgoal-title">Score</h3>
+            <ResponsiveContainer width="70%" height="70%">
+                <RadialBarChart
+                    innerRadius="0%"
+                    outerRadius="0%"
+                    data={dataArray}
+                    startAngle={90}
+                    endAngle={450}
                 >
+                    <RadialBar
+                        data={[{ value: 1 }]}
+                        dataKey="value"
+                        barSize={170}
+                        fill="#FFF"
+                        isAnimationActive={false}
+                    />
+                    <RadialBar
+                        dataKey="value"
+                        barSize={10}
+                        cornerRadius={100}
+                        fill="#FF0000"
+                    />
+                </RadialBarChart>
+            </ResponsiveContainer>
+            <div className="chartgoal-label">
+                <p className="percent">
                     {data.score && data.score * 100}
-                    {data.todayScore && data.todayScore * 100}% de votre
-                    objectif
-                </text>
-            </RadialBarChart>
+                    {data.todayScore && data.todayScore * 100}%
+                </p>
+                <p>de votre</p>
+                <p>objectif</p>
+            </div>
         </>
     )
 }

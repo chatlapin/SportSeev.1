@@ -98,12 +98,7 @@ function Profil() {
                                 {user && (
                                     <ChartsCard
                                         className="score"
-                                        content={
-                                            <ChartGoal
-                                                circleSize={260}
-                                                data={user}
-                                            />
-                                        }
+                                        content={<ChartGoal data={user} />}
                                     />
                                 )}
                             </div>
