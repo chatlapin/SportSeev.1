@@ -6,6 +6,7 @@ import {
     YAxis,
     ResponsiveContainer,
 } from 'recharts'
+import PropTypes from 'prop-types'
 
 import CustomToolTip from './CustomToolTip'
 
@@ -90,6 +91,10 @@ function ChartAverageSessions({ data }) {
             </ResponsiveContainer>
         </>
     )
+}
+
+ChartAverageSessions.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default ChartAverageSessions

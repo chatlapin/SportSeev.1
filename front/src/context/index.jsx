@@ -1,11 +1,16 @@
 import React, { useState, createContext, useEffect } from 'react'
+import PropTypes from 'prop-types'
+
 export const Context = createContext()
+
 export const Provider = ({ children }) => {
     const [userId, setUserId] = useState(null)
     const [user, setUser] = useState(null)
     const [activity, setActivity] = useState(null)
     const [averageSessions, setAverageSessions] = useState(null)
     const [performance, setPerformance] = useState(null)
+    const [userToggle, setUserToggle] = useState(false)
+
     useEffect(() => {
         if (userId) {
             fetch(`http://localhost:3000/user/${userId}`).then((response) =>
@@ -45,6 +50,7 @@ export const Provider = ({ children }) => {
             )
         }
     }, [userId])
+
     return (
         <Context.Provider
             value={{
@@ -58,9 +64,15 @@ export const Provider = ({ children }) => {
                 setAverageSessions,
                 performance,
                 setPerformance,
+                userToggle,
+                setUserToggle,
             }}
         >
             {children}
         </Context.Provider>
     )
+}
+
+Provider.propTypes = {
+    children: PropTypes.object.isRequired,
 }

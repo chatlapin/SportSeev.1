@@ -1,7 +1,7 @@
 import { useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import { Context } from '../../context'
 
+import { Context } from '../../context'
 import Card from '../../components/Card'
 import ChartsCard from '../../components/ChartsCard'
 import ChartActivity from '../../components/ChartActivity'
@@ -106,9 +106,7 @@ function Profil() {
 
                         <div className="dashboard-aside">
                             <Card
-                                userKeyData={user.keyData.calorieCount.toLocaleString(
-                                    'en-US'
-                                )}
+                                userKeyData={user.keyData.calorieCount}
                                 unit="kCal"
                                 subtitle="Calories"
                                 className="calorie"

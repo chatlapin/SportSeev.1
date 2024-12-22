@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 import './style.scss'
 
 function Card({ userKeyData, unit, subtitle, className, logo }) {
@@ -8,13 +10,21 @@ function Card({ userKeyData, unit, subtitle, className, logo }) {
 			</div>
 			<div className="card-data-wrapper">
 				<p className="card-title">
-					{userKeyData}
+					{userKeyData.toLocaleString('en-US')}
 					{unit}
 				</p>
 				<p className="card-subtitle">{subtitle}</p>
 			</div>
 		</div>
 	)
+}
+
+Card.propTypes = {
+	userKeyData: PropTypes.number.isRequired,
+	unit: PropTypes.string.isRequired,
+	subtitle: PropTypes.string.isRequired,
+	className: PropTypes.string.isRequired,
+	logo: PropTypes.string.isRequired,
 }
 
 export default Card

@@ -1,11 +1,11 @@
 import './style.scss'
 
+import SidebarButton from '../SidebarButton'
+
 import yoga from '../../assets/yoga.svg'
 import swimming from '../../assets/swimming.svg'
 import biking from '../../assets/biking.svg'
 import haltere from '../../assets/haltere.svg'
-
-import SidebarButton from '../SidebarButton'
 
 function Sidebar() {
     return (

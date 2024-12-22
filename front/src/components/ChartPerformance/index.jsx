@@ -7,6 +7,7 @@ import {
     PolarRadiusAxis,
     Text,
 } from 'recharts'
+import PropTypes from 'prop-types'
 
 function ChartPerformance({ data }) {
     const renderPolarAngleAxis = ({ payload, x, y, cx, cy, ...rest }) => {
@@ -59,6 +60,10 @@ function ChartPerformance({ data }) {
             </ResponsiveContainer>
         </>
     )
+}
+
+ChartPerformance.propTypes = {
+    data: PropTypes.object.isRequired,
 }
 
 export default ChartPerformance

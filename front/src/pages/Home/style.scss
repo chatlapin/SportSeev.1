@@ -1,9 +1,26 @@
-@import '../../variables.scss';
-
 /* ---------------------------------------- */
 /* ==                HOME                 */
 /*---------------------------------------- */
 .home {
-    display: flex;
-    justify-content: space-evenly;
+    text-align: center;
+
+    .coming-soon {
+        margin-left: 0;
+    }
+}
+
+.user-switch {
+    margin-right: 1rem;
+    font-size: 2rem;
+    font-weight: 500;
+
+    &-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    span {
+        color: #ff0101;
+    }
 }

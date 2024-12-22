@@ -8,6 +8,7 @@ import {
     Legend,
     ResponsiveContainer,
 } from 'recharts'
+import PropTypes from 'prop-types'
 
 import CustomToolTip from './CustomToolTip'
 
@@ -69,6 +70,10 @@ function ChartActivity({ data }) {
             </ResponsiveContainer>
         </>
     )
+}
+
+ChartActivity.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default ChartActivity

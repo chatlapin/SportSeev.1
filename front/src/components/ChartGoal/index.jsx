@@ -1,4 +1,5 @@
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts'
+import PropTypes from 'prop-types'
 
 import './style.scss'
 
@@ -47,6 +48,10 @@ function ChartGoal({ data }) {
             </div>
         </>
     )
+}
+
+ChartGoal.propTypes = {
+    data: PropTypes.object.isRequired,
 }
 
 export default ChartGoal
