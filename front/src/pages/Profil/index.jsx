@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Context } from '../../context'
 
 import Card from '../../components/Card'
+import ChartsCard from '../../components/ChartsCard'
 
 import energy from '../../assets/energy.svg'
 import chicken from '../../assets/chicken.svg'
@@ -62,82 +63,124 @@ function Profil() {
                         Félicitation ! Vous avez explosé vos objectifs hier 👏
                     </p>
                     <div className="dashboard">
-                        <div className="dashboard-charts">
-                            {user && (
-                                <div>
-                                    <h2>User Infos : </h2>
-                                    <div>id : {user.id}</div>
-                                    {user.score && (
-                                        <div>score : {user.score}</div>
-                                    )}
-                                    {user.todayScore && (
-                                        <div>
-                                            todayScore : {user.todayScore}
-                                        </div>
-                                    )}
-                                    <ul>
-                                        userInfos :
-                                        <li>
-                                            lastName : {user.userInfos.lastName}
-                                        </li>
-                                        <li>age : {user.userInfos.age}</li>
-                                    </ul>
-                                </div>
-                            )}
-                            {activity && (
-                                <div>
-                                    <h2>Activity :</h2>
-                                    {activity.sessions.map((item, index) => (
-                                        <div key={'activity-' + index}>
-                                            <ul>
-                                                {index + 1} :
-                                                <li>Date : {item.day}</li>
-                                                <li>
-                                                    Kilogram : {item.kilogram}
-                                                </li>
-                                                <li>
-                                                    Calories : {item.calories}
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
-                            {averageSessions && (
-                                <div>
-                                    <h2>AverageSessions :</h2>
-                                    {averageSessions.sessions.map(
-                                        (item, index) => (
-                                            <div
-                                                key={'averageSessions-' + index}
-                                            >
-                                                <ul>
-                                                    Day {item.day} :
-                                                    <li>
-                                                        sessionLength :{' '}
-                                                        {item.sessionLength}
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        )
-                                    )}
-                                </div>
-                            )}
-                            {performance && (
-                                <div>
-                                    <h2>Performance :</h2>
-                                    {performance.data.map((item, index) => (
-                                        <div key={'performance-data-' + index}>
+                        <div className="dashboard-charts-wrapper">
+                            <div className="dashboard-charts">
+                                {activity && (
+                                    <div>
+                                        <h2>Activity :</h2>
+                                        {activity.sessions.map(
+                                            (item, index) => (
+                                                <div key={'activity-' + index}>
+                                                    <ul>
+                                                        {index + 1} :
+                                                        <li>
+                                                            Date : {item.day}
+                                                        </li>
+                                                        <li>
+                                                            Kilogram :{' '}
+                                                            {item.kilogram}
+                                                        </li>
+                                                        <li>
+                                                            Calories :{' '}
+                                                            {item.calories}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            )
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                            <div className="small-card-wrapper">
+                                {averageSessions && (
+                                    <ChartsCard
+                                        className="average-sessions"
+                                        content={
                                             <div>
-                                                {performance['kind'][item.kind]}
-                                                {' : '}
-                                                {item.value}
+                                                <h2>AverageSessions :</h2>
+                                                {averageSessions.sessions.map(
+                                                    (item, index) => (
+                                                        <div
+                                                            key={
+                                                                'averageSessions-' +
+                                                                index
+                                                            }
+                                                            style={{
+                                                                display: 'flex',
+                                                            }}
+                                                        >
+                                                            <ul>
+                                                                Day {item.day} :
+                                                                <li>
+                                                                    sessionLength
+                                                                    :{' '}
+                                                                    {
+                                                                        item.sessionLength
+                                                                    }
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    )
+                                                )}
                                             </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
+                                        }
+                                    />
+                                )}
+
+                                {performance && (
+                                    <ChartsCard
+                                        className="performance"
+                                        content={
+                                            <div>
+                                                <h2>Performance :</h2>
+                                                {performance.data.map(
+                                                    (item, index) => (
+                                                        <div
+                                                            key={
+                                                                'performance-data-' +
+                                                                index
+                                                            }
+                                                        >
+                                                            <div>
+                                                                {
+                                                                    performance[
+                                                                    'kind'
+                                                                    ][item.kind]
+                                                                }
+                                                                {' : '}
+                                                                {item.value}
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                )}
+                                            </div>
+                                        }
+                                    />
+                                )}
+                                {user && (
+                                    <ChartsCard
+                                        className="score"
+                                        content={
+                                            <div>
+                                                <h2>User Infos : </h2>
+                                                {user.score && (
+                                                    <div>
+                                                        score : {user.score}
+                                                    </div>
+                                                )}
+                                                {user.todayScore && (
+                                                    <div>
+                                                        todayScore :{' '}
+                                                        {user.todayScore}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        }
+                                    />
+                                )}
+                            </div>
                         </div>
+
                         <div className="dashboard-aside">
                             <Card
                                 userKeyData={user.keyData.calorieCount}

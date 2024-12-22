@@ -1,84 +1,57 @@
-@import './variables.scss';
-/* ---------------------------------------- */
-/* ==              FONT                 */
-/*---------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-@mixin main-typography {
-    font-family: 'Roboto', sans-serif;
-    font-size: map-get($font-size, desktop);
-}
-
-@mixin title-typography {
-    font-family: 'Roboto', sans-serif;
-}
-
-html {
-    @include main-typography;
-}
-
-h1 {
-    @include title-typography;
-}
+@import '../../variables.scss';
 
 /* ---------------------------------------- */
-/* ==            GENERAL                */
+/* ==                PROFIL                 */
 /*---------------------------------------- */
-body {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+.profil {
+    &-title {
+        font-size: 3rem;
+        font-weight: 500;
+    }
 
-img {
-    width: 100%;
-    height: auto;
-}
+    &-firstName {
+        color: #ff0101;
+    }
 
-a {
-    color: $primary-color;
-    text-decoration: none;
-
-    &:hover {
-        color: $primary-color;
-        text-decoration: underline;
+    &-subtitle {
+        margin: 0;
+        margin-top: 2.5625rem;
+        margin-bottom: 4.8125rem;
+        font-size: 1.125rem;
+        font-weight: 400;
     }
 }
 
-h1 {
-    color: $primary-color;
-    @include no-margin;
-}
-
-h2 {
-    @include no-margin;
-}
-
-h3 {
-    @include no-margin;
-}
-
-h4 {
-    @include no-margin;
-}
-
-h5 {
-    @include no-margin;
-}
-
-h6 {
-    @include no-margin;
-}
-
-section {
-    width: 100%;
-    max-width: 1126px;
-    margin: 0 auto;
-    padding-top: 4.25rem;
-    padding-left: 7.3125rem;
-}
-
-#root {
+.dashboard {
     display: flex;
-    flex-wrap: wrap;
+    margin-bottom: 5rem;
+
+    &-charts {
+        width: 52.1875rem;
+        height: 20rem;
+        border-radius: 5px;
+        background: #fbfbfb;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+        font-size: 0.87rem;
+
+        div:first-child {
+            display: flex;
+        }
+
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+
+    &-aside {
+        margin-left: 1.9375rem;
+    }
+}
+
+.small-card-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 52.1875rem;
 }
